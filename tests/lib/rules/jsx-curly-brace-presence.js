@@ -82,7 +82,9 @@ ruleTester.run('jsx-curly-brace-presence', rule, {
       options: [{props: 'always'}]
     },
     {
+      /* eslint-disable no-template-curly-in-string */
       code: '<App>{`Hello ${word} World`}</App>',
+      /* eslint-enable no-template-curly-in-string */
       options: [{children: 'never'}]
     },
     {
@@ -109,15 +111,21 @@ ruleTester.run('jsx-curly-brace-presence', rule, {
       options: [{children: 'never'}]
     },
     {
+      /* eslint-disable no-template-curly-in-string */
       code: '<App>{`Hello ${word} World`}{`foo`}</App>',
+      /* eslint-enable no-template-curly-in-string */
       options: [{children: 'never'}]
     },
     {
+      /* eslint-disable no-template-curly-in-string */
       code: '<App prop={`foo ${word} bar`}>foo</App>',
+      /* eslint-enable no-template-curly-in-string */
       options: [{props: 'never'}]
     },
     {
+      /* eslint-disable no-template-curly-in-string */
       code: '<App prop={`foo ${word} bar`} />',
+      /* eslint-enable no-template-curly-in-string */
       options: [{props: 'never'}]
     },
     {
@@ -233,7 +241,9 @@ ruleTester.run('jsx-curly-brace-presence', rule, {
       options: ['never']
     },
     {
+      /* eslint-disable no-template-curly-in-string */
       code: '<MyComponent prop={`bar ${word} foo`}>{`foo ${word}`}</MyComponent>',
+      /* eslint-enable no-template-curly-in-string */
       options: ['never']
     },
     {

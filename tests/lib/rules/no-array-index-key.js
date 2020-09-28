@@ -30,7 +30,11 @@ ruleTester.run('no-array-index-key', rule, {
     {code: '<Foo key="foo" />;'},
     {code: '<Foo key={i} />;'},
     {code: '<Foo key />;'},
-    {code: '<Foo key={`foo-${i}`} />;'},
+    {
+      /* eslint-disable no-template-curly-in-string */
+      code: '<Foo key={`foo-${i}`} />;'
+      /* eslint-enable no-template-curly-in-string */
+    },
     {code: '<Foo key={\'foo-\' + i} />;'},
 
     {
@@ -38,7 +42,9 @@ ruleTester.run('no-array-index-key', rule, {
     },
 
     {
+      /* eslint-disable no-template-curly-in-string */
       code: 'foo.bar((bar, i) => <Foo key={`foo-${i}`} />)'
+      /* eslint-enable no-template-curly-in-string */
     },
 
     {
@@ -125,7 +131,9 @@ ruleTester.run('no-array-index-key', rule, {
     },
 
     {
+      /* eslint-disable no-template-curly-in-string */
       code: 'foo.map((bar, i) => <Foo key={`foo-${i}`} />)',
+      /* eslint-enable no-template-curly-in-string */
       errors: [{message: 'Do not use Array index in keys'}]
     },
 
@@ -201,7 +209,9 @@ ruleTester.run('no-array-index-key', rule, {
     },
 
     {
+      /* eslint-disable no-template-curly-in-string */
       code: 'foo.map((bar, i) => React.createElement(\'Foo\', { key: `foo-${i}` }))',
+      /* eslint-enable no-template-curly-in-string */
       errors: [{message: 'Do not use Array index in keys'}]
     },
 

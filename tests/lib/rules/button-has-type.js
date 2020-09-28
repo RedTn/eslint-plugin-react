@@ -110,7 +110,9 @@ ruleTester.run('button-has-type', rule, {
       }]
     },
     {
+      /* eslint-disable no-template-curly-in-string */
       code: '<button type={`button${foo}`}/>',
+      /* eslint-enable no-template-curly-in-string */
       errors: [{
         message: 'The button type attribute must be specified by a static string or a trivial ternary expression'
       }]

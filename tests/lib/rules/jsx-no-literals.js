@@ -489,13 +489,21 @@ ruleTester.run('jsx-no-literals', rule, {
       options: [{noStrings: true, ignoreProps: false}],
       errors: [{message: stringsMessage('`Test`')}]
     }, {
+      /* eslint-disable no-template-curly-in-string */
       code: '<Foo bar={`${baz}`} />',
+      /* eslint-enable no-template-curly-in-string */
       options: [{noStrings: true, ignoreProps: false}],
+      /* eslint-disable no-template-curly-in-string */
       errors: [{message: stringsMessage('`${baz}`')}]
+      /* eslint-enable no-template-curly-in-string */
     }, {
+      /* eslint-disable no-template-curly-in-string */
       code: '<Foo bar={`Test ${baz}`} />',
+      /* eslint-enable no-template-curly-in-string */
       options: [{noStrings: true, ignoreProps: false}],
+      /* eslint-disable no-template-curly-in-string */
       errors: [{message: stringsMessage('`Test ${baz}`')}]
+      /* eslint-enable no-template-curly-in-string */
     }, {
       code: '<Foo bar={`foo` + \'bar\'} />',
       options: [{noStrings: true, ignoreProps: false}],

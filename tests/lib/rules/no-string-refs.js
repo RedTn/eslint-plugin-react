@@ -53,6 +53,7 @@ ruleTester.run('no-refs', rule, {
     parser: parsers.BABEL_ESLINT
   },
   {
+    /* eslint-disable no-template-curly-in-string */
     code: [
       'var Hello = createReactClass({',
       '  render: function() {',
@@ -60,6 +61,7 @@ ruleTester.run('no-refs', rule, {
       '  }',
       '});'
     ].join('\n'),
+    /* eslint-enable no-template-curly-in-string */
     parser: parsers.BABEL_ESLINT
   }
   ],
@@ -141,6 +143,7 @@ ruleTester.run('no-refs', rule, {
     }]
   },
   {
+    /* eslint-disable no-template-curly-in-string */
     code: [
       'var Hello = createReactClass({',
       '  componentDidMount: function() {',
@@ -151,6 +154,7 @@ ruleTester.run('no-refs', rule, {
       '  }',
       '});'
     ].join('\n'),
+    /* eslint-enable no-template-curly-in-string */
     parser: parsers.BABEL_ESLINT,
     options: [{noTemplateLiterals: true}],
     errors: [{

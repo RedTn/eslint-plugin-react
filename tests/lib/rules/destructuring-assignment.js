@@ -127,6 +127,7 @@ ruleTester.run('destructuring-assignment', rule, {
     };`,
     options: ['always']
   }, {
+    /* eslint-disable no-template-curly-in-string */
     code: [
       'const div = styled.div`',
       '  & .button {',
@@ -134,6 +135,7 @@ ruleTester.run('destructuring-assignment', rule, {
       '  }',
       '`'
     ].join('\n')
+    /* eslint-enable no-template-curly-in-string */
   }, {
     code: `
       export default (context: $Context) => ({
@@ -166,6 +168,7 @@ ruleTester.run('destructuring-assignment', rule, {
     options: ['always', {ignoreClassFields: true}],
     parser: parsers.BABEL_ESLINT
   }, {
+    /* eslint-disable no-template-curly-in-string */
     code: [
       'class Input extends React.Component {',
       '  id = `${this.props.name}`;',
@@ -174,6 +177,7 @@ ruleTester.run('destructuring-assignment', rule, {
       '  }',
       '}'
     ].join('\n'),
+    /* eslint-enable no-template-curly-in-string */
     options: ['always', {ignoreClassFields: true}],
     parser: parsers.BABEL_ESLINT
   }],
